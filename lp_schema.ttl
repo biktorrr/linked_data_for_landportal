@@ -1,3 +1,7 @@
+
+
+#RDF Model Classes
+
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix Lp: <http://landportal.info/data#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -6,69 +10,52 @@
 @prefix dc:<http://purl.org/dc/elements/1.1/>.
 @prefix lvont: <http://lexvo.org/ontology#>.
 
-
 Lp:Post a rdf:Class ;
  rdfs:label "Post"@en .
-
 
 Lp:Tag a rdf:Class ;
  rdfs:label "Tag"@en ;
  rdfs:subClassOf skos:Concept.
 
-
 Lp:Category a rdf:Class ;
  rdfs:label "Category"@en ;
  rdfs:subClassOf skos:Concept.
-
 
 Lp:PostType a rdf:Class ;
  rdfs:label "PostType"@en ;
  rdfs:subClassOf dc:DCMIType.
 
-
 Lp:Area a rdf:Class ;
  rdfs:label "Area"@en ;
  rdfs:subClassOf skos:Concept.
-
 
 Lp:Language a rdf:Class ;
  rdfs:label "Language"@en ;
  rdfs:subClassOf lvont:language.
 
-
 Lp:Organization a rdf:Class ;
  rdfs:label "Organization"@en ;
  rdfs:subClassOf foaf:Agent.
-
 
 Lp:Author a rdf:Class ;
  rdfs:label "Author"@en ;
  rdfs:subClassOf foaf:Agent.
 
-
 Lp:FileAttachment a rdf:Class ;
  rdfs:label "FileAttachment"@en ;
  rdfs:subClassOf dc:format.
 
-RDF Model Properties
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix Lp: <http://landportal.info/data#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:<http://www.w3.org/2004/02/skos/core#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-
+# RDF Model Properties
 
 Lp:hasCategoryName a rdf:Property ;
  rdfs:domain Lp:Post;
  rdfs:label "has CategoryName"@en ;
  rdfs:range Lp:Category.
 
-
 Lp:hasTagName a rdf:Property ;
  rdfs:domain Lp:Post;
  rdfs:label "has TagName"@en ;
  rdfs:range Lp:Tag.
-
 
 Lp:hasAuthorName a rdf:Property ;
  rdfs:domain Lp:Post;
@@ -76,31 +63,26 @@ Lp:hasAuthorName a rdf:Property ;
  rdfs:range Lp:Author;
  rdfs:subPropertyOf foaf:maker.
 
-
 Lp:hasOrganizationName a rdf:Property ;
  rdfs:domain Lp:Post;
  rdfs:label "has OrganizationName"@en ;
  rdfs:range Lp:Organization;
  rdfs:subPropertyOf foaf:maker.
 
-
 Lp:hasLanguage a rdf:Property ;
  rdfs:domain Lp:Post;
  rdfs:label "has Language"@en ;
  rdfs:range Lp:Language.
-
 
 Lp:hasPostType a rdf:Property ;
  rdfs:domain Lp:Post;
  rdfs:label "has PostType"@en ;
  rdfs:range Lp:PostType.
 
-
 Lp:hasFileAttachmentName a rdf:Property ;
  rdfs:domain Lp:Post;
  rdfs:label "has FileAttachment"@en ;
  rdfs:range Lp:FileAttachment.
-
 
 Lp:hasFirstName a rdf:Property ;
  rdfs:domain Lp:Author ;
@@ -108,13 +90,11 @@ Lp:hasFirstName a rdf:Property ;
  rdfs:range rdfs:Literal ;
  rdfs:subPropertyOf foaf:firstName.
 
-
 Lp:hasLastName a rdf:Property ;
  rdfs:domain  Lp:Author;
  rdfs:label "has Last Name"@en ;
  rdfs:range rdfs:Literal ;
  rdfs:subPropertyOf foaf:lastName.
-
 
 Lp:hasSkypeID a rdf:Property ;
  rdfs:domain Lp:Author;
@@ -122,13 +102,11 @@ Lp:hasSkypeID a rdf:Property ;
  rdfs:range rdfs:Literal ;
  rdfs:subPropertyOf foaf:skypeID.
 
-
 Lp:hasLinkedInProfile a rdf:Property ;
  rdfs:domain Lp:Author;
  rdfs:label "has LinkedIn Profile"@en ;
  rdfs:range rdfs:Literal ;
  rdfs:subPropertyOf foaf:OnlineAccount.
-
 
 Lp:hasSalutationValue a rdf:Property ;
  rdfs:domain Lp:Author;
@@ -136,20 +114,17 @@ Lp:hasSalutationValue a rdf:Property ;
  rdfs:range rdfs:Literal ;
  rdfs:subPropertyOf foaf:title.
 
-
 Lp:hasExpertise a rdf:Property ;
  rdfs:domain Lp:Author;
  rdfs:label "has Expertise"@en ;
- rdfs:range rdfs:Literal ;
+ rdfs:range Lp:Tag ;
  rdfs:subPropertyOf foaf:interest.
-
 
 Lp:hasOrganizationType a rdf:Property ;
  rdfs:domain Lp:Organization;
  rdfs:label "has OrganizationType"@en ;
- rdfs:range rdfs:Literal ;
+ rdfs:range Lp:Tag ;
  rdfs:subPropertyOf foaf:interest.
-
 
 Lp:hasOrganizationLogo a rdf:Property ;
  rdfs:domain Lp:Organization;
@@ -157,85 +132,71 @@ Lp:hasOrganizationLogo a rdf:Property ;
  rdfs:range rdfs:Literal ;
  rdfs:subPropertyOf foaf:logo.
 
-
 Lp:hasContactEmail a rdf:Property ;
  rdfs:domain Lp:Organization;
  rdfs:label "has ContactEmail"@en ;
  rdfs:range rdfs:Literal ;
  rdfs:subPropertyOf foaf:mbox.
 
-
 Lp:hasCountryName a rdf:Property ;
  rdfs:domain Lp:Area;
  rdfs:label "has Country Name"@en ;
  rdfs:range rdfs:Literal.
-
 
 Lp:hasUndernourishedValue a rdf:Property ;
  rdfs:domain Lp:Area;
  rdfs:label "has Undernourished Value"@en ;
  rdfs:range rdfs:Literal.
 
-
 Lp:hasUnderweightValue a rdf:Property ;
  rdfs:domain Lp:Area;
  rdfs:label "has Underweight Value"@en ;
  rdfs:range rdfs:Literal.
-
 
 Lp:hasMortalityRate a rdf:Property ;
  rdfs:domain Lp:Area;
  rdfs:label "has Mortality Rate"@en ;
  rdfs:range rdfs:Literal.
 
-
 Lp:hasCountryCodeISO a rdf:Property ;
  rdfs:domain Lp:Area;
  rdfs:label "has CountryCodeISO"@en ;
  rdfs:range rdfs:Literal.
-
 
 Lp:hasGlobalHungerIndex a rdf:Property ;
  rdfs:domain Lp:Area;
  rdfs:label "has Global Hunger Index"@en ;
  rdfs:range rdfs:Literal.
 
-
 Lp:hasHumanDevelopmentIndex a rdf:Property ;
  rdfs:domain Lp:Area;
  rdfs:label "has HumanDevelopmentIndex"@en ;
 rdfs:range rdfs:Literal.
-
 
 Lp:hasCountryCodeFAOSTAT a rdf:Property ;
  rdfs:domain Lp:Area ;
  rdfs:label "has CountryCode FAOSTAT "@en ;
  rdfs:range rdfs:Literal.
 
-
 Lp:hasPostTypeName a rdf:Property ;
  rdfs:domain Lp:PostType;
  rdfs:label "has Post Type Name"@en ;
  rdfs:range rdfs:Literal.
-
 
 Lp:hasPostYear a rdf:Property ;
  rdfs:domain Lp:PostType;
  rdfs:label "has Post Year"@en ;
  rdfs:range rdfs:Literal.
 
-
 Lp:hasNodeID a rdf:Property ;
  rdfs:domain Lp:Post;
  rdfs:label "has NodeID"@en ;
  rdfs:range rdfs:Literal.
 
-
 Lp:hasNodeBody a rdf:Property ;
  rdfs:domain Lp:Post;
  rdfs:label "has NodeBody"@en ;
  rdfs:range rdfs:Literal.
-
 
 Lp:hasNodeTitle a rdf:Property ;
  rdfs:domain Lp:Post;
