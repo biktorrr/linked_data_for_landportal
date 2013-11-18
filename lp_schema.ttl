@@ -1,4 +1,4 @@
-
+#Here we present our RDF model of the Land Portal, using the RDF syntax Turtle. We appoint all the classes and properties we extracted from the Land Portal data. The RDF model consists of two parts: a RDF Model for the classes and a RDF Model for the properties.  In the RDF model for the classes we describe all the classes with their labels in the language English and any subclass it is part of. In the RDF Model for the properties  we describe all the properties, defining the domain, the label in English, the range and where applicable the rdfs:subpropertyOf value. The RDF model has been validated by a Turtle validator, which also translates the model to RDF/XML. 
 
 #RDF Model Classes
 
